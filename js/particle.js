@@ -1,13 +1,15 @@
 // A funcao Particle significa na verdade o tipo Particle.
 // Quando eu criar uma var particula = new Particle(), ela comecara com estes
 // valores abaixo.
-function Particle() {
+function Particle(id) {
 
   this.position = [0,0];
   this.velocity = [0,0];
   this.acceleration = [0,0];
   this.color = "#000000";
   this.radius = 0;
+  this.name = "";
+  this.id = id;
 
 }
 
@@ -34,5 +36,10 @@ Particle.prototype.update = function() {
 	if(this.position[1] < 0 || this.position[1] > canv.height) this.velocity[1] = -this.velocity[1];
 	this.velocity[0] += this.acceleration[0]/10;
 	this.velocity[1] += this.acceleration[1]/10;
+
+}
+
+// Esta funcao acontece quando alguma particula colide com outra
+Particle.prototype.collide = function(particle) {
 
 }
